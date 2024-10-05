@@ -21,6 +21,34 @@ const userSchema = new mongoose.Schema({
     age:{
         type: Number,
         required: true
+    },
+    links:{
+        type: String,
+        default: ""      
+    },
+    bio:{
+        type: String,
+        default: ""
+    },
+    followers:{
+        type: Array,
+        default: []
+    },
+    following:{
+        type: Array,
+        default: []
+    },
+    bookmark:{
+        type: Array,
+        default: []
+    },
+    profilePic:{
+        type:String,
+        default: ""
+    },
+    profileBanner:{
+        type:String,
+        default: ""
     }
 }, {timestamps: true});
 
