@@ -5,16 +5,16 @@ import jwt from "jsonwebtoken";
 
 export const Register = async(req, res)=>{
     try{
-        const authenticatedToken = req.cookies.token;
-        if(authenticatedToken){
-            const decode = jwt.verify(authenticatedToken, process.env.TOKEN_SECRET);
-            const user = await User.findById(decode.userId);
-            if(!user){
-                return response400(res, "User not Authenticated");
-            }
-            req.body.user = user;
-            return response201(res, "Loggedin Successfully");
-        }
+        // const authenticatedToken = req.cookies.token;
+        // if(authenticatedToken){
+        //     const decode = jwt.verify(authenticatedToken, process.env.TOKEN_SECRET);
+        //     const user = await User.findById(decode.userId);
+        //     if(!user){
+        //         return response400(res, "User not Authenticated");
+        //     }
+        //     req.body.user = user;
+        //     return response201(res, "Loggedin Successfully");
+        // }
         const {name, email, password, location, age} = req.body;
         if(!name || !email || !password || !location || !age){
             return response400(res, "All fields are required");
